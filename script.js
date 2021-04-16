@@ -56,24 +56,27 @@ hold.addEventListener('click', function () {
   if (Number(current_0.textContent) < 100 && Number(current_1.textContent) < 100){
     if (player0.contains('player--active')) {
       current_0.textContent = Number(current_0.textContent) + score0;
+      score_0.textContent = 0;
       score0 = 0;
+      if (Number(current_0.textContent) >= 100) {
+        player0.add('player--active');
+        player1.remove('player--active');
+        document.querySelector('#name--0').textContent = 'I Win!';
+      }
+
     } else {
       current_1.textContent = Number(current_1.textContent) + score1;
+      score_1.textContent = 0;
       score1 = 0;
+      if (Number(current_1.textContent >= 100)){
+        player0.remove('player--active');
+        player1.add('player--active');
+        document.querySelector('#name--1').textContent = 'I Win!';
+      }
     }
     document.querySelector('.player--1').classList.toggle('player--active');
     document.querySelector('.player--0').classList.toggle('player--active');
-  } else if (Number(current_0.textContent) >= 100) {
-    player0.add('player--active');
-    player1.remove('player--active');
-    document.querySelector('#name--0').textContent = 'I Win!';
-
-  } else if (Number(current_1.textContent >= 100)){
-    player0.remove('player--active');
-    player1.add('player--active');
-    document.querySelector('#name--1').textContent = 'I Win!';
-  }
-
+  } 
 });
 
 newGame.addEventListener('click', function () {
