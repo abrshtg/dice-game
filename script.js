@@ -81,4 +81,7 @@ newGame.addEventListener('click', function () {
   score_1.textContent = 0;
   current_0.textContent = 0;
   current_1.textContent = 0;
+  document.querySelector('#name--0').textContent = 'Player 1';
+  document.querySelector('#name--1').textContent = 'Player 2';
+
 });
